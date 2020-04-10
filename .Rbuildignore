@@ -1,0 +1,8 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^.*\.yml$
+^LICENSE\.md$
+^data_raw$
+^jeksterslabRnotes.Rproj$
+^NEWS.md$
+
