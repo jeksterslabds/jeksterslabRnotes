@@ -29,3 +29,4 @@ Suggests:
 	knitr,
 	rmarkdown,
 	testthat
+RoxygenNote: 7.1.0
