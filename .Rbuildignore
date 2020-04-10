@@ -6,3 +6,11 @@
 ^jeksterslabRnotes.Rproj$
 ^NEWS.md$
 
+^.travis.yml$
+^.covrignore$
+^appveyor.yml$
+^_pkgdown.yml$
+^docs$
+^README\.Rmd$
+^README\.md$
+^README\.html$
