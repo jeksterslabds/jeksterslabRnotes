@@ -28,6 +28,7 @@ Imports:
     jeksterslabRdoc,
     jeksterslabRds,
     jeksterslabRlib,
+    microbenchmark,
 	utils,
 	stats,
     knitr,
