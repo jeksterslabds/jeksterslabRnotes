@@ -25,6 +25,11 @@ vignettes/*.html
 vignettes/*.pdf
 vignettes/*.md
 
+# produced articles
+vignettes/articles/*.html
+vignettes/articles/*.pdf
+vignettes/articles/*.md
+
 # produced tests
 tests/testthat/*.html
 tests/testthat/*.pdf

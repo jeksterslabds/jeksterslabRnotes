@@ -23,10 +23,23 @@ SystemRequirements:
 Depends:
 	R (>= 3.5.0)
 Imports:
+    jeksterslabRpkg,
+    jeksterslabRutils,
+    jeksterslabRdoc,
+    jeksterslabRds,
+    jeksterslabRlib,
 	utils,
-	stats
-Suggests:
-	knitr,
+	stats,
+    knitr,
 	rmarkdown,
-	testthat
+	testthat,
+    usethis,
+    dplyr,
+    data.table
+Remotes:
+    jeksterslabds/jeksterslabRpkg,
+    jeksterslabds/jeksterslabRutils,
+    jeksterslabds/jeksterslabRdoc,
+    jeksterslabds/jeksterslabRds,
+    jeksterslabds/jeksterslabRlib
 RoxygenNote: 7.1.0

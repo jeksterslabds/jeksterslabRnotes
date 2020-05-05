@@ -1,0 +1,284 @@
+---
+title: "Structural Equations with Latent Variables: Introduction"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Structural Equations with Latent Variables: Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Structural Equation Modeling
+
+\begin{equation}
+  \mathbf{\Sigma} = \mathbf{\Sigma} \left( \mathbf{\theta} \right)
+\end{equation}
+
+where
+
+- $\mathbf{\Sigma}$ (sigma)
+  is the population covariance matrix of observed variables
+- $\mathbf{\theta}$ (theta)
+  is a vector that contains the model parameters
+- $\mathbf{\Sigma} \left( \mathbf{\theta} \right)$
+  is the covariance matrix written as a function of $\mathbf{\theta}$
+
+
+### Regression
+
+\begin{equation}
+  y = \gamma x + \zeta
+\end{equation}
+
+where
+
+- $\gamma$ (gamma) is regression coefficient,
+- $\zeta$ (zeta) is the disturbance variable
+
+  - uncorrelated with $x$, and 
+  - the expected value of $\zeta$, $\mathbb{E} = 0$
+
+\begin{equation}
+  \begin{split}
+    \mathbf{\Sigma}
+    &=
+    \mathbf{\Sigma} \left( \mathbf{\theta} \right) \\
+    \begin{bmatrix}
+      \mathrm{Var} \left( y \right)    & \\
+      \mathrm{Cov} \left( x, y \right) & \mathrm{Var} \left( x \right)
+    \end{bmatrix}
+    &=
+    \begin{bmatrix}
+      \gamma^2 \sigma_{x}^{2} + \sigma_{\zeta}^{2} & \\
+      \gamma \sigma_{x}^{2}                        & \sigma_{x}^{2}
+    \end{bmatrix}
+  \end{split}
+\end{equation}
+
+### Factor Model
+
+\begin{equation}
+  \begin{split}
+    x_1 &= \xi + \delta_1 \\
+    x_2 &= \xi + \delta_2
+  \end{split}
+\end{equation}
+
+where
+
+- $x_1$ and $x_2$ are indicators of a factor or latent random variable called $\xi$ (xi)
+- $\delta_1$ and $\delta_2$ are random disturbance terms
+
+  - uncorrelated with $\xi$ and with each other, and
+  - $\mathbb{E} \left( \delta_1 \right) = \mathbb{E} \left( \delta_2 \right) = 0$
+
+- the latent variable $\xi$ has a variance $\phi$ (phi)
+
+\begin{equation}
+  \begin{split}
+    \mathbf{\Sigma}
+    &=
+    \mathbf{\Sigma} \left( \mathbf{\theta} \right) \\
+    \begin{bmatrix}
+      \mathrm{Var} \left( x_1 \right)      & \\
+      \mathrm{Cov} \left( x_1, x_2 \right) & \mathrm{Var} \left( x_2 \right)
+    \end{bmatrix}
+    &=
+    \begin{bmatrix}
+      \phi + \sigma^{2}_{\delta_1} & \\
+      \phi                         & \phi + \sigma^{2}_{\delta_2}
+    \end{bmatrix}
+  \end{split}
+\end{equation}
+
+### Regression and Factor Model
+
+\begin{equation}
+  \begin{split}
+    y   &= \gamma \xi + \zeta \\
+    x_1 &= \xi + \delta_1  \\
+    x_2 &= \xi + \delta_2
+  \end{split}
+\end{equation}
+
+where
+
+- $y$ is associated with an unobserved variable $\xi$
+- the factor model is identical to the previous model
+
+  - $\zeta$, $\delta_1$, and $\delta_2$
+    are uncorrelted with $\xi$ and with each other
+
+\begin{equation}
+  \begin{split}
+    \mathbf{\Sigma}
+    &=
+    \mathbf{\Sigma} \left( \mathbf{\theta} \right) \\
+    \begin{bmatrix}
+      \mathrm{Var} \left( y \right)      &                                      & \\
+      \mathrm{Cov} \left( x_1, y \right) & \mathrm{Var} \left( x_1 \right)      & \\
+      \mathrm{Cov} \left( x_2, y \right) & \mathrm{Cov} \left( x_2, x_1 \right) & \mathrm{Var} \left( x_2 \right) 
+    \end{bmatrix}
+    &=
+    \begin{bmatrix}
+      \gamma^2 \phi + \sigma^{2}_{\zeta} &                              & \\
+      \gamma \phi                        & \phi + \sigma^{2}_{\delta_1} & \\
+      \gamma \phi                        & \phi                         & \phi + \sigma^{2}_{\delta_2}  
+    \end{bmatrix}
+  \end{split}
+\end{equation}
+
+## Historical Background
+
+### Sociology
+
+- Bielby and Hauser (1977)
+
+### Psychology
+
+- Bentler (1980, 1986)
+
+### Economics
+
+- Goldberger (1972)
+- Aigner et al. (1984)
+
+### Multidisciplinary
+
+- Goldberger and Duncan (1973)
+- Blalock (1971, 1985)
+
+### Other Collections
+
+- Aigner and Goldberg (1977)
+- Joreskog and Wold (1982)
+- the November 1982 issue of the Journal of Marketing Research, and 
+- the May-June 1983 issue of the Journal of Econometrics
+
+### Origins
+
+#### Wright and Path Analysis
+
+- Wright (1918, 1921, 1934, 1960)
+
+  - the path diagram,
+  - the equations relating correlations or covariances to parameters (tracing rules), and
+  - the decomposition of effects (total effects, direct effects, and indirect effects)
+
+- Wright's development of equations for covariances of variables
+  in terms of model parameters
+  is the same as that of $\mathbf{\Sigma} = \mathbf{\Sigma} \left( \mathbf{\theta} \right)$,
+  except that he developed these equations from path diagrams
+  rather than the matrix methods employed today.
+
+#### Latent Variable and Measurement Models
+
+- The factor analysis tradition spawned by Spearman (1904)
+  emphasized the relation of latent factors to observed variables.
+- The central concern was on what we now call the measurement model.
+- The structural relations between latent variables other than their correlation
+  (or lack of correlation) were not examined.
+- In econometrics the focus was the structural relation between observed variables
+  with an occasional reference to error-in-the-variable situations.
+
+#### Path Analysis in the Social Sciences
+
+- Social scientists and statisticians did not pay more attention to his work until the 1960s
+- Following Duncan's (1966) expository account,
+  the late 1960s and early 1970s saw many applications of path analysis
+  in the sociological journals.
+- The rediscovery of path analysis in sociology diffused to political science
+  and several other social science disciplines.
+- Stimulated by work in sociology, Werts and Linn (1970) wrote an expository treatment of path analysis,
+  but it was slow to catch on in psychology.
+
+#### Synthesis
+
+- Wright's path analysis examples demonstrated that econometric-type
+  models with variables measured with error could be identified and estimated.
+- The conceptual synthesis of models containing structurally related
+  latent variables and more elaborate measurement models was developed
+  extensively in sociology during the 1960s and early 1970s.
+  
+  - Blalock (1963) argued that sociologists should use causal models
+    containing both indicators and underlying variables
+    to make inferences about the latent variables
+    based on the covariances of the observed indicators.
+  - He suggested that observed variables can be causes or effects of latent variables
+    or observed variables can directly affect each other.
+  - He contrasted this with the restrictive implicit assumptions of factor analysis
+    where all indicators are viewed as effects of the latent variable.
+
+#### The LISREL Model
+
+- Joreskog (1973), Keesing (1972), and Wiley (1973)
+  developed very general structural equation models,
+  incorporated path diagrams and other features of path analysis into their presentations.
+  Researchers know these techniques by the abbreviation of the JKW model (Bentler 1980),
+  or more commonly as the LISREL model.
+  
+  - Its present form has some elaboration in the symbols employed in path diagrams,
+  - has equations relating covariances to parameters that are derived with matrix operations
+    rather than from "reading" the path diagram, and
+  - has a more refined and clearly defined decomposition of direct, indirect, and total effects
+    (see, e.g., Duncan 1971; Alwin and Hauser 1975; Fox 1980; Graff and Schmidt 1982).
+
+#### Representation
+
+- LISREL Joreskog et al. (1967, 1970, 1973, 1977, 1978)
+- Bentler and Weeks (1980)
+- McArdle and McDonald (1984)
+
+#### Estimators
+
+- In econometrics
+  the properties of estimators for structural equations with observed variables
+  were well established (see, e.g., Goldberger 1964)
+- In psychometrics
+  the work of Lawley (1940),
+  Anderson and Rubin (1956), and
+  Joreskog (1969)
+  helped lay the foundations for hypothesis testing in factor analysis.
+- Bock and Bargmann (1966)
+  proposed an analysis of covariance structures
+  to estimate the components of variance
+  due to latent variables
+  in multinormal observed variables.
+- Joreskog (1973)
+  proposed a maximum likelihood estimator
+  (based on the multinormality of the observed variables)
+  for general structural equation models which is today
+  the most widely used estimator.
+- Joreskog and Goldberger (1972) and
+  Browne (1974, 1982, 1984)
+  suggested generalized least squares (GLS) estimators
+  that offer additional flexibility in the assumptions under which they apply.
+
+  - Browne (1982, 1984),
+    for example, proposed estimators that assume arbitrary distributions
+    or elliptical distributions for the observed variables.
+
+- Bentler (1983)
+    suggested estimators that treat higher-order product moments of the observed variables.
+    He demonstrated that these moments can help identify model parameters
+    that are not identified by the covariances and the gains in efficiency that may result.
+- Muthen (1984, 1987),
+  among others, has generalized these models to ordinal or limited observed variables.
+
+#### Software
+
+- LISREL (Joreskog and Sorbom)
+- EQS (Bentler)
+- Mplus (Muthen and Muthen)
+- OpenMX
+- sem (Fox)

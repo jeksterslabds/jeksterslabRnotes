@@ -5,7 +5,6 @@
 ^data_raw$
 ^jeksterslabRnotes.Rproj$
 ^NEWS.md$
-
 ^.travis.yml$
 ^.covrignore$
 ^appveyor.yml$
@@ -14,3 +13,4 @@
 ^README\.Rmd$
 ^README\.md$
 ^README\.html$
+^Makefile$
