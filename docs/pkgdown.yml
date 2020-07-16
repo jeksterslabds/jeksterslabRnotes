@@ -6,7 +6,7 @@ articles:
   data_wrangling_list_to_df: articles/data_wrangling_list_to_df.html
   jeksterslabRnotes: jeksterslabRnotes.html
   test_2_plus_2: tests/test_2_plus_2.html
-last_built: 2020-07-08T19:22Z
+last_built: 2020-07-16T03:22Z
 urls:
   reference: https://github.com/jeksterslabds/jeksterslabRnotes//reference
   article: https://github.com/jeksterslabds/jeksterslabRnotes//articles
